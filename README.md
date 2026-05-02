@@ -13,7 +13,7 @@ The application supports:
 * Clean hardware abstraction via GPIO wrapper functions
 * Event-driven architecture using `poll()` and file descriptors
 
----
+     
 
 ## Features
 
@@ -24,7 +24,7 @@ The application supports:
 * Periodic timer using `timerfd`
 * Modular GPIO abstraction layer
 
----
+     
 
 ## System Behavior
 
@@ -43,7 +43,7 @@ The application supports:
 
 * LED toggles every 1 second using timer events
 
----
+     
 
 ## Hardware Requirements
 
@@ -54,7 +54,7 @@ The application supports:
 * 10kΩ resistor (pull-down)
 * Breadboard and jumper wires
 
----
+     
 
 ## Hardware Connections
 
@@ -75,7 +75,7 @@ The application supports:
   * Other side of button → 3.3V (P9_3 or P9_4)
   * P9_42 → 10kΩ resistor → GND
 
----
+     
 
 ## GPIO Mapping
 
@@ -84,23 +84,21 @@ The application supports:
 | gpiochip1 | 21   | GPIO1_21  | P9_25      |
 | gpiochip1 | 7    | GPIO1_7   | P9_42      |
 
----
+     
 
 ## Build Instructions
 
-```bash
-make
-```
 
----
+make
+
+     
 
 ## Run Instructions
 
 ```bash
 sudo ./app
-```
 
----
+     
 
 ## Pin Configuration
 
@@ -109,9 +107,8 @@ Ensure pins are configured as GPIO before execution:
 ```bash
 config-pin P9_25 gpio
 config-pin P9_42 gpio
-```
 
----
+     
 
 ## Software Architecture
 
@@ -132,7 +129,7 @@ config-pin P9_42 gpio
     * Event handling
     * Cleanup
 
----
+     
 
 ## Event Flow
 
@@ -155,7 +152,7 @@ config-pin P9_42 gpio
 
    * If in BLINK state → toggle LED
 
----
+     
 
 ## Key Concepts
 
@@ -165,7 +162,7 @@ config-pin P9_42 gpio
 * Time measurement using `CLOCK_MONOTONIC`
 * Hardware abstraction in embedded systems
 
----
+     
 
 ## Cleanup
 
@@ -174,7 +171,7 @@ Application handles graceful termination on `SIGINT` (Ctrl+C):
 * Releases GPIO lines
 * Closes GPIO chip
 
----
+     
 
 ## Future Enhancements
 
@@ -184,7 +181,7 @@ Application handles graceful termination on `SIGINT` (Ctrl+C):
 * Migration to `epoll` for scalability
 * Configuration via command-line arguments
 
----
+     
 
 ## Notes
 
@@ -192,14 +189,12 @@ Application handles graceful termination on `SIGINT` (Ctrl+C):
 * Avoid using 5V directly on GPIO pins
 * Ensure correct wiring before execution
 
----
+     
 
 ## Author
 
 Madhumitha Meenakshi
 
----
+     
 
-## License
 
-This project is intended for educational and development purposes.
