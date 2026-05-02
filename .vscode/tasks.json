@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build ARM",
+            "type": "shell",
+            "command": "arm-linux-gnueabihf-gcc",
+            "args": [
+                "src/main.c",
+                "src/gpio.c",
+                "-Iinclude",
+                "-lgpiod",
+                "-o",
+                "app"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
