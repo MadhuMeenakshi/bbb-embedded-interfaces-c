@@ -1,180 +1,205 @@
-# BeagleBone Black GPIO – LED Toggle with Button (libgpiod)
+# GPIO State Machine with Button and LED (BeagleBone Black)
 
-## 📌 Overview
+## Overview
 
-This project demonstrates **GPIO handling in Embedded Linux (BeagleBone Black)** using **libgpiod**.
+This project implements an event-driven GPIO application on the BeagleBone Black using the `libgpiod` interface.
+The system demonstrates a structured state machine approach combined with timer-based event handling.
 
-Features implemented:
+The application supports:
 
-* Button input using **GPIO interrupt (edge detection)**
-* LED control using **GPIO output**
-* **Debounce logic** for stable button press detection
-* Clean GPIO abstraction using wrapper functions
+* Short press detection (toggle LED ON/OFF)
+* Long press detection (enter/exit blink mode)
+* Periodic LED blinking using a timer
+* Clean hardware abstraction via GPIO wrapper functions
+* Event-driven architecture using `poll()` and file descriptors
 
-      
+---
 
-## ⚙️ Hardware Setup
+## Features
 
-### 🔴 LED Connection
+* Edge-triggered button input (rising and falling edges)
+* Time-based press duration measurement
+* State machine design (OFF, ON, BLINK)
+* Non-blocking event handling using `poll()`
+* Periodic timer using `timerfd`
+* Modular GPIO abstraction layer
 
-      
-P9_25 (GPIO1_21) → Resistor (220Ω–1kΩ) → LED (+)
-LED (–) → GND (P9_1 or P9_2)
-      
+---
 
-      
+## System Behavior
 
-### 🔘 Button Connection (Pull-down)
+### Short Press
 
-      
-P9_42 (GPIO1_7) → Button → 3.3V (P9_3 or P9_4)
-P9_42 → 10kΩ resistor → GND
-      
+* If LED is OFF → turns ON
+* If LED is ON → turns OFF
+* If in BLINK mode → exits BLINK and turns OFF
 
-      
+### Long Press
 
-## ⚠️ Important Notes
+* If not blinking → enters BLINK mode
+* If already blinking → exits BLINK mode
 
-* Use **3.3V ONLY** (never 5V)
-* LED **must have resistor**
-* Button requires **pull-down resistor**
-* Ensure pins are configured as GPIO:
+### Blink Mode
 
-      bash
+* LED toggles every 1 second using timer events
+
+---
+
+## Hardware Requirements
+
+* BeagleBone Black
+* LED
+* 220Ω–1kΩ resistor
+* Push button
+* 10kΩ resistor (pull-down)
+* Breadboard and jumper wires
+
+---
+
+## Hardware Connections
+
+### LED
+
+* GPIO: `gpiochip1 line 21` → P9_25
+* Connection:
+
+  * P9_25 → resistor → LED anode (+)
+  * LED cathode (–) → GND (P9_1 or P9_2)
+
+### Button
+
+* GPIO: `gpiochip1 line 7` → P9_42
+* Connection:
+
+  * P9_42 → one side of button
+  * Other side of button → 3.3V (P9_3 or P9_4)
+  * P9_42 → 10kΩ resistor → GND
+
+---
+
+## GPIO Mapping
+
+| GPIO Chip | Line | GPIO Name | Header Pin |
+| --------- | ---- | --------- | ---------- |
+| gpiochip1 | 21   | GPIO1_21  | P9_25      |
+| gpiochip1 | 7    | GPIO1_7   | P9_42      |
+
+---
+
+## Build Instructions
+
+```bash
+make
+```
+
+---
+
+## Run Instructions
+
+```bash
+sudo ./app
+```
+
+---
+
+## Pin Configuration
+
+Ensure pins are configured as GPIO before execution:
+
+```bash
 config-pin P9_25 gpio
 config-pin P9_42 gpio
-      
+```
 
-      
+---
 
-## 🧠 GPIO Mapping
+## Software Architecture
 
-| Code              | GPIO     | Pin   |
-|------------------ | -------- | ----- |
-| gpiochip1 line 21 | GPIO1_21 | P9_25 |
-| gpiochip1 line 7  | GPIO1_7  | P9_42 |
+### Main Components
 
+* `main.c`
 
+  * Implements state machine logic
+  * Handles event loop (`poll`)
+  * Manages timer and button events
 
-## 🏗️ Project Structure
+* `gpio.c / gpio.h`
 
-      
-.
-├── src/
-│   ├── main.c        # Application logic
-│   └── gpio.c        # GPIO wrapper implementation
-├── inc/
-│   └── gpio.h        # GPIO wrapper header
-├── Makefile
-└── README.md
-      
+  * Provides abstraction for:
 
-      
+    * Initialization
+    * Read/write operations
+    * Event handling
+    * Cleanup
 
-## 🔧 Build
+---
 
-      bash
-make
-      
+## Event Flow
 
-      
+1. `poll()` waits for:
 
-## ▶️ Run
+   * Button event (GPIO interrupt)
+   * Timer event (periodic)
 
-      bash
-sudo ./app
-      
+2. Button events:
 
-      
+   * Rising edge → press start time recorded
+   * Falling edge → press duration calculated
 
-## How It Works
+3. Based on duration:
 
-### 🔹 Initialization
+   * Short press → toggle ON/OFF
+   * Long press → toggle BLINK mode
 
-* Opens GPIO chip (`gpiochip1`)
-* Configures:
+4. Timer events:
 
-  * LED → output
-  * Button → rising edge interrupt
+   * If in BLINK state → toggle LED
 
+---
 
-### 🔹 Main Loop
+## Key Concepts
 
-1. Waits for button event:
+* File descriptor based I/O
+* Event-driven programming
+* State machine design
+* Time measurement using `CLOCK_MONOTONIC`
+* Hardware abstraction in embedded systems
 
-   
-   gpio_wait_for_event()
-        
+---
 
-2. Reads event:
-        
-   gpio_read_event()        
+## Cleanup
 
-3. Applies debounce:
-        
-   diff < debounce_ms → ignore        
-
-4. On valid press:
-        
-   led_state = !led_state
-   gpio_set()        
-
-      
-
-### 🔹 Debounce Logic
-
-* Uses `CLOCK_MONOTONIC`
-* Filters noise within **200 ms**
-* Prevents multiple triggers per press
-
-      
-
-## 📚 Key Concepts Used
-
-* **libgpiod (modern GPIO interface)**
-* Edge-triggered interrupts
-* File-descriptor-based event handling
-* Time-based debounce
-* Modular driver abstraction
-
-      
-
-## 🧪 Expected Output
-      
-Press button to toggle LED (Ctrl+C to exit)
-Waiting for button press...
-Event detected: 1
-LED: 1
-Event detected: 1
-LED: 0
-      
-      
-
-## 🧹 Cleanup
-
-Press `Ctrl+C`:
+Application handles graceful termination on `SIGINT` (Ctrl+C):
 
 * Releases GPIO lines
-* Closes chip properly
+* Closes GPIO chip
 
-      
+---
 
-## 📈 Future Improvements
+## Future Enhancements
 
-* Add **falling edge detection**
-* Implement **long press / double press**
-* Add **state machine architecture**
-* Integrate **timerfd + poll()**
-* Extend to multi-device control
+* Double-click detection
+* Adjustable blink frequency
+* Multiple GPIO control
+* Migration to `epoll` for scalability
+* Configuration via command-line arguments
 
-      
+---
 
-## 👨‍💻 Author
+## Notes
 
-Madhu Kaushik
+* Only 3.3V logic levels must be used
+* Avoid using 5V directly on GPIO pins
+* Ensure correct wiring before execution
 
-      
+---
 
-## 📝 License
+## Author
 
-This project is for learning and experimentation purposes.
+Madhumitha Meenakshi
+
+---
+
+## License
+
+This project is intended for educational and development purposes.
