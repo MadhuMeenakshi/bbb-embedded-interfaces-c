@@ -1,0 +1,907 @@
+▒
+U-Boot SPL 2022.04-ge0d31da5 (Aug 04 2023 - 18:48:26 +0000)
+Trying to boot from MMC1
+
+
+U-Boot 2022.04-ge0d31da5 (Aug 04 2023 - 18:48:26 +0000)
+
+CPU  : AM335X-GP rev 2.1
+Model: TI AM335x BeagleBone Black
+DRAM:  512 MiB
+Reset Source: Power-on reset has occurred.
+RTC 32KCLK Source: External.
+Core:  150 devices, 14 uclasses, devicetree: separate
+WDT:   Started wdt@44e35000 with servicing (60s timeout)
+MMC:   OMAP SD/MMC: 0, OMAP SD/MMC: 1
+Loading Environment from EXT4... ** File not found /boot/uboot.env **
+
+** Unable to read "/boot/uboot.env" from mmc0:1 **
+Board: BeagleBone Black
+<ethaddr> not set. Validating first E-fuse MAC
+BeagleBone Black:
+BeagleBone Cape EEPROM: no EEPROM at address: 0x54
+BeagleBone Cape EEPROM: no EEPROM at address: 0x55
+BeagleBone Cape EEPROM: no EEPROM at address: 0x56
+BeagleBone Cape EEPROM: no EEPROM at address: 0x57
+Net:   eth2: ethernet@4a100000, eth3: usb_ether
+Press SPACE to abort autoboot in 0 seconds
+board_name=[A335BNLT] ...
+board_rev=[00C0] ...
+switch to partitions #0, OK
+mmc0 is current device
+SD/MMC found on device 0
+Couldn't find partition 0:2 0x82000000
+Can't set block device
+Couldn't find partition 0:2 0x82000000
+Can't set block device
+switch to partitions #0, OK
+mmc0 is current device
+Scanning mmc 0:1...
+libfdt fdt_check_header(): FDT_ERR_BADMAGIC
+Scanning disk mmc@48060000.blk...
+Scanning disk mmc@481d8000.blk...
+Found 4 disks
+No EFI system partition
+BootOrder not defined
+EFI boot manager: Cannot load any image
+gpio: pin 56 (gpio 56) value is 0
+gpio: pin 55 (gpio 55) value is 0
+gpio: pin 54 (gpio 54) value is 0
+gpio: pin 53 (gpio 53) value is 1
+switch to partitions #0, OK
+mmc0 is current device
+gpio: pin 54 (gpio 54) value is 1
+Checking for: /uEnv.txt ...
+Checking for: /boot/uEnv.txt ...
+gpio: pin 55 (gpio 55) value is 1
+1712 bytes read in 4 ms (418 KiB/s)
+Loaded environment from /boot/uEnv.txt
+Checking if uname_r is set in /boot/uEnv.txt...
+gpio: pin 56 (gpio 56) value is 1
+Running uname_boot ...
+loading /boot/vmlinuz-5.10.168-ti-r72 ...
+11325952 bytes read in 719 ms (15 MiB/s)
+debug: [enable_uboot_overlays=1] ...
+debug: [enable_uboot_cape_universal=1] ...
+debug: [uboot_base_dtb_univ=am335x-boneblack-uboot-univ.dtb] ...
+uboot_overlays: [uboot_base_dtb=am335x-boneblack-uboot-univ.dtb] ...
+uboot_overlays: Switching too: dtb=am335x-boneblack-uboot-univ.dtb ...
+loading /boot/dtbs/5.10.168-ti-r72/am335x-boneblack-uboot-univ.dtb ...
+210757 bytes read in 19 ms (10.6 MiB/s)
+Found 0 extension board(s).
+uboot_overlays: [fdt_buffer=0x60000] ...
+uboot_overlays: loading /boot/dtbs/5.10.168-ti-r72/overlays/BB-ADC-00A0.dtbo ...
+645 bytes read in 6 ms (104.5 KiB/s)
+uboot_overlays: loading /boot/dtbs/5.10.168-ti-r72/overlays/BB-BONE-eMMC1-01-00A                                                                                                             0.dtbo ...
+1605 bytes read in 7 ms (223.6 KiB/s)
+uboot_overlays: loading /boot/dtbs/5.10.168-ti-r72/overlays/BB-HDMI-TDA998x-00A0                                                                                                             .dtbo ...
+5321 bytes read in 6 ms (865.2 KiB/s)
+loading /boot/initrd.img-5.10.168-ti-r72 ...
+7844660 bytes read in 504 ms (14.8 MiB/s)
+debug: [console=ttyS0,115200n8 bone_capemgr.uboot_capemgr_enabled=1 root=/dev/mm                                                                                                             cblk0p1 ro rootfstype=ext4 rootwait init=/usr/sbin/init-beagle-flasher] ...
+debug: [bootz 0x82000000 0x88080000:77b334 88000000] ...
+Kernel image @ 0x82000000 [ 0x000000 - 0xacd200 ]
+## Flattened Device Tree blob at 88000000
+   Booting using the fdt blob at 0x88000000
+   Loading Ramdisk to 8f884000, end 8ffff334 ... OK
+   Loading Device Tree to 8f7ec000, end 8f883fff ... OK
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 5.10.168-ti-r72 (voodoo@rpi4b4g-03) (gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #1bookworm SMP PREEMPT Sat Sep 30 03:40:45 UTC 2023
+[    0.000000] CPU: ARMv7 Processor [413fc082] revision 2 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: TI AM335x BeagleBone Black
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] efi: UEFI not found.
+[    0.000000] cma: Reserved 48 MiB at 0x9c800000
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000080000000-0x000000009fdfffff]
+[    0.000000]   HighMem  empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080000000-0x000000009fdfffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x000000009fdfffff]
+[    0.000000] CPU: All CPU(s) started in SVC mode.
+[    0.000000] AM335X ES2.1 (sgx neon)
+[    0.000000] percpu: Embedded 21 pages/cpu s54604 r8192 d23220 u86016
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 129412
+[    0.000000] Kernel command line: console=ttyS0,115200n8 bone_capemgr.uboot_capemgr_enabled=1 root=/dev/mmcblk0p1 ro rootfstype=ext4 rootwait init=/usr/sbin/init-beagle-flasher
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:on, heap free:off
+[    0.000000] Memory: 437192K/522240K available (14336K kernel code, 1448K rwdata, 4036K rodata, 1024K init, 446K bss, 35896K reserved, 49152K cma-reserved, 0K highmem)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=2 to nr_cpu_ids=1.
+[    0.000000]  Trampoline variant of Tasks RCU enabled.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] IRQ: Found an INTC at 0x(ptrval) (revision 5.0) with 128 interrupts
+[    0.000000] TI gptimer clocksource: always-on /ocp/interconnect@44c00000/segment@200000/target-module@31000
+[    0.000010] sched_clock: 32 bits at 24MHz, resolution 41ns, wraps every 89478484971ns
+[    0.000031] clocksource: dmtimer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+[    0.000417] TI gptimer clockevent: 24000000 Hz at /ocp/interconnect@48000000/segment@0/target-module@40000
+[    0.002619] Console: colour dummy device 80x30
+[    0.002708] Calibrating delay loop... 995.32 BogoMIPS (lpj=1990656)
+[    0.048473] pid_max: default: 32768 minimum: 301
+[    0.049075] LSM: Security Framework initializing
+[    0.049199] Yama: becoming mindful.
+[    0.049497] AppArmor: AppArmor initialized
+[    0.049520] TOMOYO Linux initialized
+[    0.049717] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.049736] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.051416] CPU: Testing write buffer coherency: ok
+[    0.051510] CPU0: Spectre v2: using BPIALL workaround
+[    0.072890] Setting up static identity map for 0x80100000 - 0x80100060
+[    0.080491] rcu: Hierarchical SRCU implementation.
+[    0.089727] EFI services will not be available.
+[    0.100504] smp: Bringing up secondary CPUs ...
+[    0.100530] smp: Brought up 1 node, 1 CPU
+[    0.100542] SMP: Total of 1 processors activated (995.32 BogoMIPS).
+[    0.100553] CPU: All CPU(s) started in SVC mode.
+[    0.101477] devtmpfs: initialized
+[    0.144824] VFP support v0.3: implementor 41 architecture 3 part 30 variant c rev 3
+[    0.145318] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.145365] futex hash table entries: 256 (order: 2, 16384 bytes, linear)
+[    0.149157] pinctrl core: initialized pinctrl subsystem
+[    0.150331] DMI not present or invalid.
+[    0.151274] NET: Registered protocol family 16
+[    0.154407] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.194710] l3-aon-clkctrl:0000:0: failed to disable
+[    0.195437] audit: initializing netlink subsys (disabled)
+[    0.197001] thermal_sys: Registered thermal governor 'fair_share'
+[    0.197015] thermal_sys: Registered thermal governor 'bang_bang'
+[    0.197032] thermal_sys: Registered thermal governor 'step_wise'
+[    0.197043] thermal_sys: Registered thermal governor 'user_space'
+[    0.197052] thermal_sys: Registered thermal governor 'power_allocator'
+[    0.198007] audit: type=2000 audit(0.184:1): state=initialized audit_enabled=0 res=1
+[    0.198061] cpuidle: using governor ladder
+[    0.198110] cpuidle: using governor menu
+[    4.609574] hw-breakpoint: debug architecture 0x4 unsupported.
+[    4.656254] Kprobes globally optimized
+[    4.680886] raid6: skip pq benchmark and using algorithm neonx8
+[    4.680920] raid6: using neon recovery algorithm
+[    4.688586] iommu: Default domain type: Translated
+[    4.693406] SCSI subsystem initialized
+[    4.697019] usbcore: registered new interface driver usbfs
+[    4.697115] usbcore: registered new interface driver hub
+[    4.697177] usbcore: registered new device driver usb
+[    4.698360] mc: Linux media interface: v0.10
+[    4.698416] videodev: Linux video capture interface: v2.00
+[    4.698627] pps_core: LinuxPPS API ver. 1 registered
+[    4.698643] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    4.698693] PTP clock support registered
+[    4.701140] NetLabel: Initializing
+[    4.701166] NetLabel:  domain hash size = 128
+[    4.701176] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[    4.701306] NetLabel:  unlabeled traffic allowed by default
+[    4.702493] clocksource: Switched to clocksource dmtimer
+[    5.734794] VFS: Disk quotas dquot_6.6.0
+[    5.734952] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    5.735261] FS-Cache: Loaded
+[    5.735655] CacheFiles: Loaded
+[    5.736653] AppArmor: AppArmor Filesystem Enabled
+[    5.749865] NET: Registered protocol family 2
+[    5.750156] IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    5.751751] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes, linear)
+[    5.752053] TCP established hash table entries: 4096 (order: 2, 16384 bytes, linear)
+[    5.752125] TCP bind hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    5.752187] TCP: Hash tables configured (established 4096 bind 4096)
+[    5.752810] MPTCP token hash table entries: 512 (order: 1, 8192 bytes, linear)
+[    5.752914] UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    5.752951] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    5.753216] NET: Registered protocol family 1
+[    5.766716] RPC: Registered named UNIX socket transport module.
+[    5.766741] RPC: Registered udp transport module.
+[    5.766751] RPC: Registered tcp transport module.
+[    5.766760] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    5.766778] NET: Registered protocol family 44
+[    5.767640] Trying to unpack rootfs image as initramfs...
+[    6.723072] Freeing initrd memory: 7664K
+[    6.724149] hw perfevents: enabled with armv7_cortex_a8 PMU driver, 5 counters available
+[    6.729909] Initialise system trusted keyrings
+[    6.730390] workingset: timestamp_bits=14 max_order=17 bucket_order=3
+[    6.738337] zbud: loaded
+[    6.746648] NFS: Registering the id_resolver key type
+[    6.746734] Key type id_resolver registered
+[    6.746747] Key type id_legacy registered
+[    6.746959] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    6.746977] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    6.747034] jffs2: version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+[    6.748130] fuse: init (API version 7.32)
+[    6.837840] NET: Registered protocol family 38
+[    6.837872] xor: automatically using best checksumming function   neon
+[    6.837887] Key type asymmetric registered
+[    6.837899] Asymmetric key parser 'x509' registered
+[    6.837983] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 243)
+[    6.842371] io scheduler mq-deadline registered
+[    7.545775] ti-sysc: probe of 44e31000.target-module failed with error -16
+[    7.678073] omap_i2c 4802a000.i2c: bus 1 rev0.11 at 100 kHz
+[    7.731772] ti-sysc: probe of 48040000.target-module failed with error -16
+[    7.940922] omap-mailbox 480c8000.mailbox: omap mailbox rev 0x400
+[    8.060637] omap_i2c 4819c000.i2c: bus 2 rev0.11 at 100 kHz
+[    8.578436] debugfs: Directory '49000000.dma' with parent 'dmaengine' already present!
+[    8.578570] edma 49000000.dma: TI EDMA DMA engine driver
+[    8.608529] pinctrl-single 44e10800.pinmux: 142 pins, size 568
+[    8.609976] gpio-of-helper ocp:cape-universal: Failed to get gpio property of 'P8_03'
+[    8.610000] gpio-of-helper ocp:cape-universal: Failed to create gpio entry
+[    8.631276] Serial: 8250/16550 driver, 6 ports, IRQ sharing disabled
+[    8.636100] printk: console [ttyS0] disabled
+[    8.636223] 44e09000.serial: ttyS0 at MMIO 0x44e09000 (irq = 20, base_baud = 3000000) is a 8250
+[    9.490716] printk: console [ttyS0] enabled
+[    9.496929] 48022000.serial: ttyS1 at MMIO 0x48022000 (irq = 27, base_baud = 3000000) is a 8250
+[    9.507624] 48024000.serial: ttyS2 at MMIO 0x48024000 (irq = 28, base_baud = 3000000) is a 8250
+[    9.518253] 481a6000.serial: ttyS3 at MMIO 0x481a6000 (irq = 43, base_baud = 3000000) is a 8250
+[    9.528505] 481a8000.serial: ttyS4 at MMIO 0x481a8000 (irq = 44, base_baud = 3000000) is a 8250
+[    9.538966] 481aa000.serial: ttyS5 at MMIO 0x481aa000 (irq = 45, base_baud = 3000000) is a 8250
+[    9.552393] omap_rng 48310000.rng: Random Number Generator ver. 20
+[    9.559033] random: crng init done
+[    9.674658] loop: module loaded
+[    9.678179] at24 2-0054: supply vcc not found, using dummy regulator
+[    9.713929] at24 2-0055: supply vcc not found, using dummy regulator
+[    9.749947] at24 2-0056: supply vcc not found, using dummy regulator
+[    9.785896] at24 2-0057: supply vcc not found, using dummy regulator
+[    9.889028] mdio_bus 4a101000.mdio: mii_bus 4a101000.mdio couldn't get reset GPIO
+[    9.897749] cpsw 4a100000.ethernet: initialized cpsw ale version 1.4
+[    9.904339] cpsw 4a100000.ethernet: ALE Table size 1024
+[    9.909808] cpsw 4a100000.ethernet: cpts: overflow check period 1250 (jiffies)
+[    9.917213] cpsw 4a100000.ethernet: Detected MACID = b0:d5:cc:f6:c1:6a
+[    9.927435] usbcore: registered new interface driver smsc95xx
+[    9.936004] am335x-phy-driver 47401300.usb-phy: supply vcc not found, using dummy regulator
+[    9.944821] am335x-phy-driver 47401300.usb-phy: dummy supplies not allowed for exclusive requests
+[    9.960160] am335x-phy-driver 47401b00.usb-phy: supply vcc not found, using dummy regulator
+[    9.969107] am335x-phy-driver 47401b00.usb-phy: dummy supplies not allowed for exclusive requests
+[    9.984821] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    9.991615] ehci-platform: EHCI generic platform driver
+[    9.997539] ehci-omap: OMAP-EHCI Host Controller driver
+[   10.017172] musb-hdrc musb-hdrc.1: MUSB HDRC host driver
+[   10.022846] musb-hdrc musb-hdrc.1: new USB bus registered, assigned bus number 1
+[   10.030717] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.10
+[   10.039057] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[   10.046332] usb usb1: Product: MUSB HDRC host driver
+[   10.051338] usb usb1: Manufacturer: Linux 5.10.168-ti-r72 musb-hcd
+[   10.057565] usb usb1: SerialNumber: musb-hdrc.1
+[   10.063104] hub 1-0:1.0: USB hub found
+[   10.067039] hub 1-0:1.0: 1 port detected
+[   10.085802] omap_rtc 44e3e000.rtc: registered as rtc0
+[   10.091754] omap_rtc 44e3e000.rtc: setting system clock to 2000-01-01T00:00:00 UTC (946684800)
+[   10.102707] i2c /dev entries driver
+[   10.111956] omap_wdt: OMAP Watchdog Timer Rev 0x01: initial timeout 60 sec
+[   10.119710] softdog: initialized. soft_noboot=0 soft_margin=60 sec soft_panic=0 (nowayout=0)
+[   10.128257] softdog:              soft_reboot_cmd=<not set> soft_active_on_boot=0
+[   10.137969] cpuidle: enable-method property 'ti,am3352' found operations
+[   10.146890] sdhci: Secure Digital Host Controller Interface driver
+[   10.153168] sdhci: Copyright(c) Pierre Ossman
+[   10.157571] sdhci-pltfm: SDHCI platform and OF driver helper
+[   10.173129] ledtrig-cpu: registered to indicate activity on CPUs
+[   10.180544] sdhci-omap 481d8000.mmc: supply vqmmc not found, using dummy regulator
+[   10.189895] omap-aes 53500000.aes: OMAP AES hw accel rev: 3.2
+[   10.197719] omap-aes 53500000.aes: will run requests pump with realtime priority
+[   10.209600] omap-sham 53100000.sham: hw accel on OMAP rev 4.3
+[   10.216097] omap-sham 53100000.sham: will run requests pump with realtime priority
+[   10.228632] hid: raw HID events driver (C) Jiri Kosina
+[   10.234720] mmc1: SDHCI controller on 481d8000.mmc [481d8000.mmc] using External DMA
+[   10.243364] usbcore: registered new interface driver usbhid
+[   10.250040] usbhid: USB HID core driver
+[   10.254765] remoteproc remoteproc0: wkup_m3 is available
+[   10.270113] NET: Registered protocol family 10
+[   10.332309] mmc1: new high speed MMC card at address 0001
+[   10.355477] mmcblk1: mmc1:0001 S10004 3.56 GiB
+[   10.367433] mmcblk1boot0: mmc1:0001 S10004 partition 1 4.00 MiB
+[   10.379334] mmcblk1boot1: mmc1:0001 S10004 partition 2 4.00 MiB
+[   10.391047] mmcblk1rpmb: mmc1:0001 S10004 partition 3 4.00 MiB, chardev (240:0)
+[   10.401562]  mmcblk1: p1
+[   10.404467] Segment Routing with IPv6
+[   10.409896] mip6: Mobile IPv6
+[   10.413050] NET: Registered protocol family 17
+[   10.422099] Key type dns_resolver registered
+[   10.426565] mpls_gso: MPLS GSO support
+[   10.430717] ThumbEE CPU extension supported.
+[   10.437279] Registering SWP/SWPB emulation handler
+[   10.442286] omap_voltage_late_init: Voltage driver support not added
+[   10.449645] registered taskstats version 1
+[   10.454254] Loading compiled-in X.509 certificates
+[   10.459290] zswap: loaded using pool lzo/zbud
+[   10.468594] Key type .fscrypt registered
+[   10.472648] Key type fscrypt-provisioning registered
+[   10.484878] Btrfs loaded, crc32c=crc32c-generic
+[   10.489662] AppArmor: AppArmor sha1 policy hashing enabled
+[   10.516582] OMAP GPIO hardware version 0.1
+[   10.551312] tps65217-pmic: Failed to locate of_node [id: -1]
+[   10.567886] tps65217-bl: Failed to locate of_node [id: -1]
+[   10.576569] tps6521x_pwrbutton tps65217-pwrbutton: DMA mask not set
+[   10.583952] input: tps65217_pwr_but as /devices/platform/ocp/44c00000.interconnect/44c00000.interconnect:segment@200000/44e0b000.target-module/44e0b000.i2c/i2c-0/0-0024/tps65217-pwrbutton/input/input0
+[   10.602531] tps65217 0-0024: TPS65217 ID 0xe version 1.2
+[   10.609594] at24 0-0050: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+[   10.616831] omap_i2c 44e0b000.i2c: bus 0 rev0.11 at 400 kHz
+[   10.630258] gpio-of-helper ocp:cape-universal: Allocated GPIO id=0 name='P8_03'
+[   10.637957] gpio-of-helper ocp:cape-universal: Allocated GPIO id=1 name='P8_04'
+[   10.645513] gpio-of-helper ocp:cape-universal: Allocated GPIO id=2 name='P8_05'
+[   10.653075] gpio-of-helper ocp:cape-universal: Allocated GPIO id=3 name='P8_06'
+[   10.660915] gpio-of-helper ocp:cape-universal: Allocated GPIO id=4 name='P8_07'
+[   10.668545] gpio-of-helper ocp:cape-universal: Allocated GPIO id=5 name='P8_08'
+[   10.676111] gpio-of-helper ocp:cape-universal: Allocated GPIO id=6 name='P8_09'
+[   10.683641] gpio-of-helper ocp:cape-universal: Allocated GPIO id=7 name='P8_10'
+[   10.691187] gpio-of-helper ocp:cape-universal: Allocated GPIO id=8 name='P8_11'
+[   10.698747] gpio-of-helper ocp:cape-universal: Allocated GPIO id=9 name='P8_12'
+[   10.706372] gpio-of-helper ocp:cape-universal: Allocated GPIO id=10 name='P8_13'
+[   10.714035] gpio-of-helper ocp:cape-universal: Allocated GPIO id=11 name='P8_14'
+[   10.721661] gpio-of-helper ocp:cape-universal: Allocated GPIO id=12 name='P8_15'
+[   10.729295] gpio-of-helper ocp:cape-universal: Allocated GPIO id=13 name='P8_16'
+[   10.736930] gpio-of-helper ocp:cape-universal: Allocated GPIO id=14 name='P8_17'
+[   10.744551] gpio-of-helper ocp:cape-universal: Allocated GPIO id=15 name='P8_18'
+[   10.752176] gpio-of-helper ocp:cape-universal: Allocated GPIO id=16 name='P8_19'
+[   10.759790] gpio-of-helper ocp:cape-universal: Allocated GPIO id=17 name='P8_20'
+[   10.767446] gpio-of-helper ocp:cape-universal: Allocated GPIO id=18 name='P8_21'
+[   10.775074] gpio-of-helper ocp:cape-universal: Allocated GPIO id=19 name='P8_22'
+[   10.782682] gpio-of-helper ocp:cape-universal: Allocated GPIO id=20 name='P8_23'
+[   10.790342] gpio-of-helper ocp:cape-universal: Allocated GPIO id=21 name='P8_24'
+[   10.797971] gpio-of-helper ocp:cape-universal: Allocated GPIO id=22 name='P8_25'
+[   10.805599] gpio-of-helper ocp:cape-universal: Allocated GPIO id=23 name='P8_26'
+[   10.813234] gpio-of-helper ocp:cape-universal: Allocated GPIO id=24 name='P8_27'
+[   10.820847] gpio-of-helper ocp:cape-universal: Allocated GPIO id=25 name='P8_28'
+[   10.828600] gpio-of-helper ocp:cape-universal: Allocated GPIO id=26 name='P8_29'
+[   10.836268] gpio-of-helper ocp:cape-universal: Allocated GPIO id=27 name='P8_30'
+[   10.843900] gpio-of-helper ocp:cape-universal: Allocated GPIO id=28 name='P8_31'
+[   10.851525] gpio-of-helper ocp:cape-universal: Allocated GPIO id=29 name='P8_32'
+[   10.859169] gpio-of-helper ocp:cape-universal: Allocated GPIO id=30 name='P8_33'
+[   10.866806] gpio-of-helper ocp:cape-universal: Allocated GPIO id=31 name='P8_34'
+[   10.874483] gpio-of-helper ocp:cape-universal: Allocated GPIO id=32 name='P8_35'
+[   10.882095] gpio-of-helper ocp:cape-universal: Allocated GPIO id=33 name='P8_36'
+[   10.889719] gpio-of-helper ocp:cape-universal: Allocated GPIO id=34 name='P8_37'
+[   10.897331] gpio-of-helper ocp:cape-universal: Allocated GPIO id=35 name='P8_38'
+[   10.904970] gpio-of-helper ocp:cape-universal: Allocated GPIO id=36 name='P8_39'
+[   10.912605] gpio-of-helper ocp:cape-universal: Allocated GPIO id=37 name='P8_40'
+[   10.920228] gpio-of-helper ocp:cape-universal: Allocated GPIO id=38 name='P8_41'
+[   10.927857] gpio-of-helper ocp:cape-universal: Allocated GPIO id=39 name='P8_42'
+[   10.935467] gpio-of-helper ocp:cape-universal: Allocated GPIO id=40 name='P8_43'
+[   10.943093] gpio-of-helper ocp:cape-universal: Allocated GPIO id=41 name='P8_44'
+[   10.950718] gpio-of-helper ocp:cape-universal: Allocated GPIO id=42 name='P8_45'
+[   10.958333] gpio-of-helper ocp:cape-universal: Allocated GPIO id=43 name='P8_46'
+[   10.965977] gpio-of-helper ocp:cape-universal: Allocated GPIO id=44 name='P9_11'
+[   10.973619] gpio-of-helper ocp:cape-universal: Allocated GPIO id=45 name='P9_12'
+[   10.981271] gpio-of-helper ocp:cape-universal: Allocated GPIO id=46 name='P9_13'
+[   10.988902] gpio-of-helper ocp:cape-universal: Allocated GPIO id=47 name='P9_14'
+[   10.996522] gpio-of-helper ocp:cape-universal: Allocated GPIO id=48 name='P9_15'
+[   11.004143] gpio-of-helper ocp:cape-universal: Allocated GPIO id=49 name='P9_16'
+[   11.011766] gpio-of-helper ocp:cape-universal: Allocated GPIO id=50 name='P9_17'
+[   11.019384] gpio-of-helper ocp:cape-universal: Allocated GPIO id=51 name='P9_18'
+[   11.027023] gpio-of-helper ocp:cape-universal: Allocated GPIO id=52 name='P9_19'
+[   11.034679] gpio-of-helper ocp:cape-universal: Allocated GPIO id=53 name='P9_20'
+[   11.042327] gpio-of-helper ocp:cape-universal: Allocated GPIO id=54 name='P9_21'
+[   11.049960] gpio-of-helper ocp:cape-universal: Allocated GPIO id=55 name='P9_22'
+[   11.057575] gpio-of-helper ocp:cape-universal: Allocated GPIO id=56 name='P9_23'
+[   11.065203] gpio-of-helper ocp:cape-universal: Allocated GPIO id=57 name='P9_24'
+[   11.073134] gpio-of-helper ocp:cape-universal: Allocated GPIO id=58 name='P9_25'
+[   11.080842] gpio-of-helper ocp:cape-universal: Allocated GPIO id=59 name='P9_26'
+[   11.088524] gpio-of-helper ocp:cape-universal: Allocated GPIO id=60 name='P9_27'
+[   11.096148] gpio-of-helper ocp:cape-universal: Allocated GPIO id=61 name='P9_28'
+[   11.103784] gpio-of-helper ocp:cape-universal: Allocated GPIO id=62 name='P9_29'
+[   11.111411] gpio-of-helper ocp:cape-universal: Allocated GPIO id=63 name='P9_30'
+[   11.119046] gpio-of-helper ocp:cape-universal: Allocated GPIO id=64 name='P9_31'
+[   11.126669] gpio-of-helper ocp:cape-universal: Allocated GPIO id=65 name='P9_41'
+[   11.134282] gpio-of-helper ocp:cape-universal: Allocated GPIO id=66 name='P9_91'
+[   11.141912] gpio-of-helper ocp:cape-universal: Allocated GPIO id=67 name='P9_42'
+[   11.149526] gpio-of-helper ocp:cape-universal: Allocated GPIO id=68 name='P9_92'
+[   11.156986] gpio-of-helper ocp:cape-universal: ready
+[   11.202563] davinci_mdio 4a101000.mdio: davinci mdio revision 1.6, bus freq 1000000
+[   11.231272] davinci_mdio 4a101000.mdio: phy[0]: device 4a101000.mdio:00, driver SMSC LAN8710/LAN8720
+[   11.249894] omap_gpio 44e07000.gpio: Could not set line 6 debounce to 200000 microseconds (-22)
+[   11.260264] sdhci-omap 48060000.mmc: Got CD GPIO
+[   11.265377] sdhci-omap 48060000.mmc: supply vqmmc not found, using dummy regulator
+[   11.302949] mmc0: SDHCI controller on 48060000.mmc [48060000.mmc] using External DMA
+[   11.343897] mmc0: new high speed SDXC card at address 0001
+[   11.355004] mmcblk0: mmc0:0001 SD 116 GiB
+[   11.361839]  mmcblk0: p1
+[   11.385322] tda998x 0-0070: found TDA19988
+[   11.393796] tilcdc 4830e000.lcdc: bound 0-0070 (ops 0xc0fac258)
+[   11.401303] [drm] Initialized tilcdc 1.0.0 20121205 for 4830e000.lcdc on minor 0
+[   11.409244] tilcdc 4830e000.lcdc: [drm] Cannot find any crtc or sizes
+[   11.417607] of_cfs_init
+[   11.420668] tilcdc 4830e000.lcdc: [drm] Cannot find any crtc or sizes
+[   11.427266] of_cfs_init: OK
+[   11.434071] Freeing unused kernel memory: 1024K
+[   11.439503] Run /init as init process
+Loading, please wait...
+Starting systemd-udevd version 252.17-1~deb12u1
+Begin: Loading essential drivers ... done.
+Begin: Running /scripts/init-premount ... done.
+Begin: Mounting root file system ... Begin: Running /scripts/local-top ... done.
+Begin: Running /scripts/local-premount ... Scanning for Btrfs filesystems
+done.
+Warning: fsck not present, so skipping root file system
+[   19.222735] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: (null)
+done.
+Begin: Running /scripts/local-bottom ... done.
+Begin: Running /scripts/init-bottom ... trap: EXIT: bad trap
+done.
+--------------------------------------------------------------------------------
+Version: [1.20230710.0, merged generic cleanups...]
+--------------------------------------------------------------------------------
+cat /etc/default/beagle-flasher:
+--------------------------------------------------------------------------------
+#debug_over_display=tty0
+source=/dev/mmcblk0
+destination=/dev/mmcblk1
+rfs_partition=single
+rfs_rootfs_type=ext4
+rfs_rootfs_startmb=4
+bootloader=/opt/u-boot/bb-u-boot-am335x-evm/install-mmcblk1.sh
+flash_back=beaglebone-black-emmc-to-microsd
+--------------------------------------------------------------------------------
+INFO: Giving system time to stablize...
+--------------------------------------------------------------------------------
+5
+4
+3
+2
+1
+--------------------------------------------------------------------------------
+INFO: Preparing /tmp
+INFO: [mount -t tmpfs tmpfs /tmp]
+--------------------------------------------------------------------------------
+INFO: /proc/cmdline
+INFO: [cat /proc/cmdline]
+console=ttyS0,115200n8 bone_capemgr.uboot_capemgr_enabled=1 root=/dev/mmcblk0p1 ro rootfstype=ext4 rootwait init=/usr/sbin/init-beagle-flasher
+--------------------------------------------------------------------------------
+INFO: Preparing sysctl
+INFO: [sysctl: vm.min_free_kbytes=[2789]
+INFO: [sysctl: setting: [sysctl -w vm.min_free_kbytes=16384]
+vm.min_free_kbytes = 16384
+--------------------------------------------------------------------------------
+INFO: [lsblk -i]
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+mmcblk1      179:0    0   3.6G  0 disk
+`-mmcblk1p1  179:1    0   3.6G  0 part
+mmcblk1boot0 179:256  0     4M  1 disk
+mmcblk1boot1 179:512  0     4M  1 disk
+mmcblk0      179:768  0 116.5G  0 disk
+`-mmcblk0p1  179:769  0   3.5G  0 part /
+--------------------------------------------------------------------------------
+INFO: copying [/dev/mmcblk0] -> [/dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: [source=/dev/mmcblk0] is a valid block device
+INFO: [destination=/dev/mmcblk1] is a valid block device
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Erasing: [/dev/mmcblk1]
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: [dd if=/dev/zero of=/dev/mmcblk1 bs=1M count=108 status=progress]
+108003328 bytes (108 MB, 103 MiB) copied, 2 s, 51.7 MB/s
+108+0 records in
+108+0 records out
+113246208 bytes (113 MB, 108 MiB) copied, 10.0028 s, 11.3 MB/s
+--------------------------------------------------------------------------------
+INFO: [dd if=/dev/mmcblk1 of=/dev/null bs=1M count=108 status=progress]
+87031808 bytes (87 MB, 83 MiB) copied, 2 s, 43.1 MB/s
+108+0 records in
+108+0 records out
+113246208 bytes (113 MB, 108 MiB) copied, 2.72057 s, 41.6 MB/s
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Erasing: [/dev/mmcblk1] complete
+--------------------------------------------------------------------------------
+INFO: [/bin/bash /opt/u-boot/bb-u-boot-am335x-evm/install-mmcblk1.sh]
+dd if=/opt/u-boot/bb-u-boot-am335x-evm/MLO of=/dev/mmcblk1 count=2 seek=1 bs=128k
+0+1 records in
+0+1 records out
+106396 bytes (106 kB, 104 KiB) copied, 0.019087 s, 5.6 MB/s
+dd if=/opt/u-boot/bb-u-boot-am335x-evm/u-boot-dtb.img of=/dev/mmcblk1 count=4 seek=1 bs=384k
+2+1 records in
+2+1 records out
+987908 bytes (988 kB, 965 KiB) copied, 0.138197 s, 7.1 MB/s
+--------------------------------------------------------------------------------
+INFO: Partitioning: /dev/mmcblk1
+INFO: /sbin/sfdisk: [sfdisk from util-linux 2.38.1]
+INFO: /sbin/sfdisk: [/sbin/sfdisk --force --wipe-partitions always /dev/mmcblk1]
+INFO: /sbin/sfdisk: [4M,,L,*]
+--------------------------------------------------------------------------------
+Checking that no-one is using this disk right now ... OK
+
+Disk /dev/mmcblk1: 3.56 GiB, 3825205248 bytes, 7471104 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+>>> Created a new DOS (MBR) disklabel with disk identifier 0xf4d4428d.
+/dev/mmcblk1p1: Created a new partition 1 of type 'Linux' and of size 3.6 GiB.
+/dev/mmcblk1p2: Done.
+
+New situation:
+Disklabel type: dos
+Disk identifier: 0xf4d4428d
+
+Device         Boot Start     End Sectors  Size Id Type
+/dev/mmcblk1p1 *     8192 7471103 7462912  3.6G 83 Linux
+
+The partition table has been altered.
+Calling ioctl() to re-read partition table.[   38.518971]  mmcblk1: p1
+
+Syncing disks.
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Formatting: /dev/mmcblk1
+/sbin/mkfs.ext4  /dev/mmcblk1p1 -L rootfs
+mke2fs 1.47.0 (5-Feb-2023)
+Discarding device blocks: done
+Creating filesystem with 932864 4k blocks and 233392 inodes
+Filesystem UUID: 885ee955-85af-4f5a-ab69-e58f14dd95a8
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Formatting: /dev/mmcblk1 complete
+--------------------------------------------------------------------------------
+INFO: Copying: /dev/mmcblk0p1 -> /dev/mmcblk1p1
+INFO: [mount /dev/mmcblk1p1 /tmp/rootfs/ -o async,noatime]
+[   51.290141] EXT4-fs (mmcblk1p1): mounted filesystem with ordered data mode. Opts: (null)
+INFO: /usr/bin/rsync: (-aHAXx) [/ -> /tmp/rootfs/]
+
+  10.616831] omap_i2c 44e0b000.i2c: bus 0 rev0.11 at 400 kHz
+[   10.630258] gpio-of-helper ocp:cape-universal: Allocated GPIO id=0 name='P8_03'
+[   10.637957] gpio-of-helper ocp:cape-universal: Allocated GPIO id=1 name='P8_04'
+[   10.645513] gpio-of-helper ocp:cape-universal: Allocated GPIO id=2 name='P8_05'
+[   10.653075] gpio-of-helper ocp:cape-universal: Allocated GPIO id=3 name='P8_06'
+[   10.660915] gpio-of-helper ocp:cape-universal: Allocated GPIO id=4 name='P8_07'
+[   10.668545] gpio-of-helper ocp:cape-universal: Allocated GPIO id=5 name='P8_08'
+[   10.676111] gpio-of-helper ocp:cape-universal: Allocated GPIO id=6 name='P8_09'
+[   10.683641] gpio-of-helper ocp:cape-universal: Allocated GPIO id=7 name='P8_10'
+[   10.691187] gpio-of-helper ocp:cape-universal: Allocated GPIO id=8 name='P8_11'
+[   10.698747] gpio-of-helper ocp:cape-universal: Allocated GPIO id=9 name='P8_12'
+[   10.706372] gpio-of-helper ocp:cape-universal: Allocated GPIO id=10 name='P8_13'
+[   10.714035] gpio-of-helper ocp:cape-universal: Allocated GPIO id=11 name='P8_14'
+[   10.721661] gpio-of-helper ocp:cape-universal: Allocated GPIO id=12 name='P8_15'
+[   10.729295] gpio-of-helper ocp:cape-universal: Allocated GPIO id=13 name='P8_16'
+[   10.736930] gpio-of-helper ocp:cape-universal: Allocated GPIO id=14 name='P8_17'
+[   10.744551] gpio-of-helper ocp:cape-universal: Allocated GPIO id=15 name='P8_18'
+[   10.752176] gpio-of-helper ocp:cape-universal: Allocated GPIO id=16 name='P8_19'
+[   10.759790] gpio-of-helper ocp:cape-universal: Allocated GPIO id=17 name='P8_20'
+[   10.767446] gpio-of-helper ocp:cape-universal: Allocated GPIO id=18 name='P8_21'
+[   10.775074] gpio-of-helper ocp:cape-universal: Allocated GPIO id=19 name='P8_22'
+[   10.782682] gpio-of-helper ocp:cape-universal: Allocated GPIO id=20 name='P8_23'
+[   10.790342] gpio-of-helper ocp:cape-universal: Allocated GPIO id=21 name='P8_24'
+[   10.797971] gpio-of-helper ocp:cape-universal: Allocated GPIO id=22 name='P8_25'
+[   10.805599] gpio-of-helper ocp:cape-universal: Allocated GPIO id=23 name='P8_26'
+[   10.813234] gpio-of-helper ocp:cape-universal: Allocated GPIO id=24 name='P8_27'
+[   10.820847] gpio-of-helper ocp:cape-universal: Allocated GPIO id=25 name='P8_28'
+[   10.828600] gpio-of-helper ocp:cape-universal: Allocated GPIO id=26 name='P8_29'
+[   10.836268] gpio-of-helper ocp:cape-universal: Allocated GPIO id=27 name='P8_30'
+[   10.843900] gpio-of-helper ocp:cape-universal: Allocated GPIO id=28 name='P8_31'
+[   10.851525] gpio-of-helper ocp:cape-universal: Allocated GPIO id=29 name='P8_32'
+[   10.859169] gpio-of-helper ocp:cape-universal: Allocated GPIO id=30 name='P8_33'
+[   10.866806] gpio-of-helper ocp:cape-universal: Allocated GPIO id=31 name='P8_34'
+[   10.874483] gpio-of-helper ocp:cape-universal: Allocated GPIO id=32 name='P8_35'
+[   10.882095] gpio-of-helper ocp:cape-universal: Allocated GPIO id=33 name='P8_36'
+[   10.889719] gpio-of-helper ocp:cape-universal: Allocated GPIO id=34 name='P8_37'
+[   10.897331] gpio-of-helper ocp:cape-universal: Allocated GPIO id=35 name='P8_38'
+[   10.904970] gpio-of-helper ocp:cape-universal: Allocated GPIO id=36 name='P8_39'
+[   10.912605] gpio-of-helper ocp:cape-universal: Allocated GPIO id=37 name='P8_40'
+[   10.920228] gpio-of-helper ocp:cape-universal: Allocated GPIO id=38 name='P8_41'
+[   10.927857] gpio-of-helper ocp:cape-universal: Allocated GPIO id=39 name='P8_42'
+[   10.935467] gpio-of-helper ocp:cape-universal: Allocated GPIO id=40 name='P8_43'
+[   10.943093] gpio-of-helper ocp:cape-universal: Allocated GPIO id=41 name='P8_44'
+[   10.950718] gpio-of-helper ocp:cape-universal: Allocated GPIO id=42 name='P8_45'
+[   10.958333] gpio-of-helper ocp:cape-universal: Allocated GPIO id=43 name='P8_46'
+[   10.965977] gpio-of-helper ocp:cape-universal: Allocated GPIO id=44 name='P9_11'
+[   10.973619] gpio-of-helper ocp:cape-universal: Allocated GPIO id=45 name='P9_12'
+[   10.981271] gpio-of-helper ocp:cape-universal: Allocated GPIO id=46 name='P9_13'
+[   10.988902] gpio-of-helper ocp:cape-universal: Allocated GPIO id=47 name='P9_14'
+[   10.996522] gpio-of-helper ocp:cape-universal: Allocated GPIO id=48 name='P9_15'
+[   11.004143] gpio-of-helper ocp:cape-universal: Allocated GPIO id=49 name='P9_16'
+[   11.011766] gpio-of-helper ocp:cape-universal: Allocated GPIO id=50 name='P9_17'
+[   11.019384] gpio-of-helper ocp:cape-universal: Allocated GPIO id=51 name='P9_18'
+[   11.027023] gpio-of-helper ocp:cape-universal: Allocated GPIO id=52 name='P9_19'
+[   11.034679] gpio-of-helper ocp:cape-universal: Allocated GPIO id=53 name='P9_20'
+[   11.042327] gpio-of-helper ocp:cape-universal: Allocated GPIO id=54 name='P9_21'
+[   11.049960] gpio-of-helper ocp:cape-universal: Allocated GPIO id=55 name='P9_22'
+[   11.057575] gpio-of-helper ocp:cape-universal: Allocated GPIO id=56 name='P9_23'
+[   11.065203] gpio-of-helper ocp:cape-universal: Allocated GPIO id=57 name='P9_24'
+[   11.073134] gpio-of-helper ocp:cape-universal: Allocated GPIO id=58 name='P9_25'
+[   11.080842] gpio-of-helper ocp:cape-universal: Allocated GPIO id=59 name='P9_26'
+[   11.088524] gpio-of-helper ocp:cape-universal: Allocated GPIO id=60 name='P9_27'
+[   11.096148] gpio-of-helper ocp:cape-universal: Allocated GPIO id=61 name='P9_28'
+[   11.103784] gpio-of-helper ocp:cape-universal: Allocated GPIO id=62 name='P9_29'
+[   11.111411] gpio-of-helper ocp:cape-universal: Allocated GPIO id=63 name='P9_30'
+[   11.119046] gpio-of-helper ocp:cape-universal: Allocated GPIO id=64 name='P9_31'
+[   11.126669] gpio-of-helper ocp:cape-universal: Allocated GPIO id=65 name='P9_41'
+[   11.134282] gpio-of-helper ocp:cape-universal: Allocated GPIO id=66 name='P9_91'
+[   11.141912] gpio-of-helper ocp:cape-universal: Allocated GPIO id=67 name='P9_42'
+[   11.149526] gpio-of-helper ocp:cape-universal: Allocated GPIO id=68 name='P9_92'
+[   11.156986] gpio-of-helper ocp:cape-universal: ready
+[   11.202563] davinci_mdio 4a101000.mdio: davinci mdio revision 1.6, bus freq 1000000
+[   11.231272] davinci_mdio 4a101000.mdio: phy[0]: device 4a101000.mdio:00, driver SMSC LAN8710/LAN8720
+[   11.249894] omap_gpio 44e07000.gpio: Could not set line 6 debounce to 200000 microseconds (-22)
+[   11.260264] sdhci-omap 48060000.mmc: Got CD GPIO
+[   11.265377] sdhci-omap 48060000.mmc: supply vqmmc not found, using dummy regulator
+[   11.302949] mmc0: SDHCI controller on 48060000.mmc [48060000.mmc] using External DMA
+[   11.343897] mmc0: new high speed SDXC card at address 0001
+[   11.355004] mmcblk0: mmc0:0001 SD 116 GiB
+[   11.361839]  mmcblk0: p1
+[   11.385322] tda998x 0-0070: found TDA19988
+[   11.393796] tilcdc 4830e000.lcdc: bound 0-0070 (ops 0xc0fac258)
+[   11.401303] [drm] Initialized tilcdc 1.0.0 20121205 for 4830e000.lcdc on minor 0
+[   11.409244] tilcdc 4830e000.lcdc: [drm] Cannot find any crtc or sizes
+[   11.417607] of_cfs_init
+[   11.420668] tilcdc 4830e000.lcdc: [drm] Cannot find any crtc or sizes
+[   11.427266] of_cfs_init: OK
+[   11.434071] Freeing unused kernel memory: 1024K
+[   11.439503] Run /init as init process
+Loading, please wait...
+Starting systemd-udevd version 252.17-1~deb12u1
+Begin: Loading essential drivers ... done.
+Begin: Running /scripts/init-premount ... done.
+Begin: Mounting root file system ... Begin: Running /scripts/local-top ... done.
+Begin: Running /scripts/local-premount ... Scanning for Btrfs filesystems
+done.
+Warning: fsck not present, so skipping root file system
+[   19.222735] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: (null)
+done.
+Begin: Running /scripts/local-bottom ... done.
+Begin: Running /scripts/init-bottom ... trap: EXIT: bad trap
+done.
+--------------------------------------------------------------------------------
+Version: [1.20230710.0, merged generic cleanups...]
+--------------------------------------------------------------------------------
+cat /etc/default/beagle-flasher:
+--------------------------------------------------------------------------------
+#debug_over_display=tty0
+source=/dev/mmcblk0
+destination=/dev/mmcblk1
+rfs_partition=single
+rfs_rootfs_type=ext4
+rfs_rootfs_startmb=4
+bootloader=/opt/u-boot/bb-u-boot-am335x-evm/install-mmcblk1.sh
+flash_back=beaglebone-black-emmc-to-microsd
+--------------------------------------------------------------------------------
+INFO: Giving system time to stablize...
+--------------------------------------------------------------------------------
+5
+4
+3
+2
+1
+--------------------------------------------------------------------------------
+INFO: Preparing /tmp
+INFO: [mount -t tmpfs tmpfs /tmp]
+--------------------------------------------------------------------------------
+INFO: /proc/cmdline
+INFO: [cat /proc/cmdline]
+console=ttyS0,115200n8 bone_capemgr.uboot_capemgr_enabled=1 root=/dev/mmcblk0p1 ro rootfstype=ext4 rootwait init=/usr/sbin/init-beagle-flasher
+--------------------------------------------------------------------------------
+INFO: Preparing sysctl
+INFO: [sysctl: vm.min_free_kbytes=[2789]
+INFO: [sysctl: setting: [sysctl -w vm.min_free_kbytes=16384]
+vm.min_free_kbytes = 16384
+--------------------------------------------------------------------------------
+INFO: [lsblk -i]
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+mmcblk1      179:0    0   3.6G  0 disk
+`-mmcblk1p1  179:1    0   3.6G  0 part
+mmcblk1boot0 179:256  0     4M  1 disk
+mmcblk1boot1 179:512  0     4M  1 disk
+mmcblk0      179:768  0 116.5G  0 disk
+`-mmcblk0p1  179:769  0   3.5G  0 part /
+--------------------------------------------------------------------------------
+INFO: copying [/dev/mmcblk0] -> [/dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: [source=/dev/mmcblk0] is a valid block device
+INFO: [destination=/dev/mmcblk1] is a valid block device
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Erasing: [/dev/mmcblk1]
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: [dd if=/dev/zero of=/dev/mmcblk1 bs=1M count=108 status=progress]
+108003328 bytes (108 MB, 103 MiB) copied, 2 s, 51.7 MB/s
+108+0 records in
+108+0 records out
+113246208 bytes (113 MB, 108 MiB) copied, 10.0028 s, 11.3 MB/s
+--------------------------------------------------------------------------------
+INFO: [dd if=/dev/mmcblk1 of=/dev/null bs=1M count=108 status=progress]
+87031808 bytes (87 MB, 83 MiB) copied, 2 s, 43.1 MB/s
+108+0 records in
+108+0 records out
+113246208 bytes (113 MB, 108 MiB) copied, 2.72057 s, 41.6 MB/s
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Erasing: [/dev/mmcblk1] complete
+--------------------------------------------------------------------------------
+INFO: [/bin/bash /opt/u-boot/bb-u-boot-am335x-evm/install-mmcblk1.sh]
+dd if=/opt/u-boot/bb-u-boot-am335x-evm/MLO of=/dev/mmcblk1 count=2 seek=1 bs=128k
+0+1 records in
+0+1 records out
+106396 bytes (106 kB, 104 KiB) copied, 0.019087 s, 5.6 MB/s
+dd if=/opt/u-boot/bb-u-boot-am335x-evm/u-boot-dtb.img of=/dev/mmcblk1 count=4 seek=1 bs=384k
+2+1 records in
+2+1 records out
+987908 bytes (988 kB, 965 KiB) copied, 0.138197 s, 7.1 MB/s
+--------------------------------------------------------------------------------
+INFO: Partitioning: /dev/mmcblk1
+INFO: /sbin/sfdisk: [sfdisk from util-linux 2.38.1]
+INFO: /sbin/sfdisk: [/sbin/sfdisk --force --wipe-partitions always /dev/mmcblk1]
+INFO: /sbin/sfdisk: [4M,,L,*]
+--------------------------------------------------------------------------------
+Checking that no-one is using this disk right now ... OK
+
+Disk /dev/mmcblk1: 3.56 GiB, 3825205248 bytes, 7471104 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+>>> Created a new DOS (MBR) disklabel with disk identifier 0xf4d4428d.
+/dev/mmcblk1p1: Created a new partition 1 of type 'Linux' and of size 3.6 GiB.
+/dev/mmcblk1p2: Done.
+
+New situation:
+Disklabel type: dos
+Disk identifier: 0xf4d4428d
+
+Device         Boot Start     End Sectors  Size Id Type
+/dev/mmcblk1p1 *     8192 7471103 7462912  3.6G 83 Linux
+
+The partition table has been altered.
+Calling ioctl() to re-read partition table.[   38.518971]  mmcblk1: p1
+
+Syncing disks.
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Formatting: /dev/mmcblk1
+/sbin/mkfs.ext4  /dev/mmcblk1p1 -L rootfs
+mke2fs 1.47.0 (5-Feb-2023)
+Discarding device blocks: done
+Creating filesystem with 932864 4k blocks and 233392 inodes
+Filesystem UUID: 885ee955-85af-4f5a-ab69-e58f14dd95a8
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Formatting: /dev/mmcblk1 complete
+--------------------------------------------------------------------------------
+INFO: Copying: /dev/mmcblk0p1 -> /dev/mmcblk1p1
+INFO: [mount /dev/mmcblk1p1 /tmp/rootfs/ -o async,noatime]
+[   51.290141] EXT4-fs (mmcblk1p1): mounted filesystem with ordered data mode. Opts: (null)
+INFO: /usr/bin/rsync: (-aHAXx) [/ -> /tmp/rootfs/]
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Copying: Kernel modules
+INFO: /usr/bin/rsync: (-aHAXx) /lib/modules/5.10.168-ti-r72/ -> /tmp/rootfs/lib/modules/5.10.168-ti-r72/
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Generating: /etc/fstab
+INFO: [cat /tmp/rootfs/etc/fstab]
+# /etc/fstab: static file system information.
+#
+/dev/mmcblk1p1  /  ext4  noatime,errors=remount-ro  0  1
+debugfs  /sys/kernel/debug  debugfs  mode=755,uid=root,gid=gpio,defaults  0  0
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: [cat /tmp/rootfs/boot/uEnv.txt]
+#Docs: http://elinux.org/Beagleboard:U-boot_partitioning_layout_2.0
+
+uname_r=5.10.168-ti-r72
+#uuid=
+#dtb=
+
+###U-Boot Overlays###
+###Documentation: http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#U-Boot_Overlays
+###Master Enable
+enable_uboot_overlays=1
+###
+###Overide capes with eeprom
+#uboot_overlay_addr0=<file0>.dtbo
+#uboot_overlay_addr1=<file1>.dtbo
+#uboot_overlay_addr2=<file2>.dtbo
+#uboot_overlay_addr3=<file3>.dtbo
+###
+###Additional custom capes
+#uboot_overlay_addr4=<file4>.dtbo
+#uboot_overlay_addr5=<file5>.dtbo
+#uboot_overlay_addr6=<file6>.dtbo
+#uboot_overlay_addr7=<file7>.dtbo
+###
+###Custom Cape
+#dtb_overlay=<file8>.dtbo
+###
+###Disable auto loading of virtual capes (emmc/video/wireless/adc)
+#disable_uboot_overlay_emmc=1
+#disable_uboot_overlay_video=1
+#disable_uboot_overlay_audio=1
+#disable_uboot_overlay_wireless=1
+#disable_uboot_overlay_adc=1
+###
+###Cape Universal Enable
+enable_uboot_cape_universal=1
+###
+###Debug: disable uboot autoload of Cape
+#disable_uboot_overlay_addr0=1
+#disable_uboot_overlay_addr1=1
+#disable_uboot_overlay_addr2=1
+#disable_uboot_overlay_addr3=1
+###
+###U-Boot fdt tweaks... (60000 = 384KB)
+#uboot_fdt_buffer=0x60000
+###U-Boot Overlays###
+
+console=ttyS0,115200n8
+cmdline=coherent_pool=1M net.ifnames=0 lpj=1990656 rng_core.default_quality=100 quiet
+
+#In the event of edid real failures, uncomment this next line:
+#cmdline=coherent_pool=1M net.ifnames=0 lpj=1990656 rng_core.default_quality=100 quiet video=HDMI-A-1:1024x768@60e
+
+#Use an overlayfs on top of a read-only root filesystem:
+#cmdline=coherent_pool=1M net.ifnames=0 lpj=1990656 rng_core.default_quality=100 quiet overlayroot=tmpfs
+
+##enable Generic eMMC Flasher:
+#cmdline=init=/usr/sbin/init-beagle-flasher
+--------------------------------------------------------------------------------
+INFO: [cp -v /etc/beagle-flasher/beaglebone-black-emmc-to-microsd /tmp/rootfs/etc/default/beagle-flasher]
+'/etc/beagle-flasher/beaglebone-black-emmc-to-microsd' -> '/tmp/rootfs/etc/default/beagle-flasher'
+--------------------------------------------------------------------------------
+INFO: [cat /tmp/rootfs/etc/default/generic-sys-mods]
+#This file is sourced by /usb/bin/bb-growpart
+ROOT_DRIVE=/dev/mmcblk1
+ROOT_PARTITION=1
+ARCH_SOC_MODULES=am335x
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+Copying: /dev/mmcblk0p1 -> /dev/mmcblk1p1 complete
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: [umount /tmp/rootfs/ || umount -l /tmp/rootfs/ || write_failure]
+--------------------------------------------------------------------------------
+INFO: [umount /tmp || true]
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: Force writeback of eMMC buffers by Syncing: /dev/mmcblk1
+INFO: [dd if=/dev/mmcblk1 of=/dev/null count=100000 status=progress]
+29884416 bytes (30 MB, 28 MiB) copied, 1 s, 29.9 MB/s
+100000+0 records in
+100000+0 records out
+51200000 bytes (51 MB, 49 MiB) copied, 1.72722 s, 29.6 MB/s
+--------------------------------------------------------------------------------
+INFO: flush_cache: [blockdev --flushbufs /dev/mmcblk1]
+--------------------------------------------------------------------------------
+INFO: [We are init, trying to shutdown, we may crash, data is RO so safe]
+5
+INFO: [found: /proc/sysrq-trigger]
+INFO: [found: echo s > /proc/sysrq-trigger
+INFO: [found: echo o > /proc/sysrq-trigger
+4
+3
+2
+1
+----------------------------------------------------------------[  401.323265] sysrq: Emergency Sync
+----------------
+[  401.332053] Emergency Sync complete
+[  401.337238] sysrq: Power Off
+4
+[  401.366309] reboot: Power down
+
